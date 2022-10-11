@@ -1,9 +1,9 @@
-# nextjs-prisma-auth-template
-<!-- Demo - https://nextjs-template-one-mu.vercel.app/ -->
+# ip-crawler-frontend
+
+Web view for all live discovered IP addresses on the internet.
 
 ## Tech Stack
 - TypeScript
 - Next.js
-- Next Auth
 - Prisma
 - Tailwind CSS
