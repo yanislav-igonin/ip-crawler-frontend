@@ -17,6 +17,7 @@ const Users: NextPage = () => {
   const { data } = trpc.ips.list.useQuery({ page: activePage });
   const pagesCount = data ? Math.ceil(data?.count / 20) : 0;
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
+  
   return <Layout>
     <main className='p-4'>
       <h1>Live IPs</h1>
