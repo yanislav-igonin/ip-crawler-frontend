@@ -1,28 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
+model ips {
+  address    String   @id
+  checkedAt  DateTime @db.Timestamptz(6)
+  status     String
+  statusCode BigInt
 
-model Session {
-  id           String   @id @default(cuid())
-  expires      DateTime
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map("sessions")
-}
-
-model User {
-  id        String    @id @default(cuid())
-  email     String    @unique
-  password  String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Session   Session[]
-
-  @@map("users")
+  @@index([status], map: "idx_ips_status")
+  @@index([statusCode], map: "idx_ips_status_code")
 }
