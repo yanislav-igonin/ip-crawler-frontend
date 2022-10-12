@@ -53,8 +53,11 @@ const Users: NextPage = () => {
       <ul className='flex justify-center items-center gap-2 flex-wrap'>
         {pages.map((page) => <li key={page}>
           <p onClick={() => onPaginationChange(page)}
-            className='text-lg cursor-pointer'
-            style={{ color: page === activePage ? 'rgb(244 63 94)' : 'inherit' }}>
+            className={`${page === activePage ? 'text-xl' : 'text-lg'} cursor-pointer`}
+            style={{
+              color: page === activePage ? 'rgb(244 63 94)' : 'inherit',
+              fontWeight: page === activePage ? 'bold' : 'inherit',
+            }}>
             {page}
           </p>
         </li>)}
