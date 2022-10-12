@@ -14,4 +14,5 @@ Web view for all live discovered IP addresses on the internet.
 - TypeScript
 - Next.js
 - Prisma
+- tRPC
 - Tailwind CSS
