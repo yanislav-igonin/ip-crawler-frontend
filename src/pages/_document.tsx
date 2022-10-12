@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 const Document = () => <Html className="dark">
   <Head>
-    <meta name="description" content="My NextJS Template" />
+    <meta name="description" content="IP crawler" />
     <link rel="icon" href="/favicon.ico" />
   </Head>
 

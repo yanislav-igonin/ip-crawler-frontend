@@ -6,6 +6,7 @@ import { ErrorBoundary } from '@components';
 
 const MyApp: AppType = ({ Component, pageProps }) => <ErrorBoundary>
   <Head>
+    <title>IP crawler</title>
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
   </Head>
   <Component {...pageProps} />
