@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { trpc } from '@lib/trpc';
 import { Heading, Layout, Spinner } from '@components';
 
-const Users: NextPage = () => {
+const Index: NextPage = () => {
   const router = useRouter();
   const pageFromQuery = Number(router.query.page) || 1;
   const [activePage, setActivePage] = useState(pageFromQuery);
@@ -68,4 +68,4 @@ const Users: NextPage = () => {
   </Layout>;
 };
 
-export default Users;
+export default Index;
