@@ -14,14 +14,16 @@ const Users: NextPage = () => {
     router.push(`/?page=${page}`, undefined, { shallow: true });
   };
 
-  const { data } = trpc.ips.list.useQuery({ page: activePage });
-  const pagesCount = data ? Math.ceil(data?.count / 20) : 0;
+  const { data: ipsData } = trpc.ips.list.useQuery({ page: activePage });
+  const { data: countData } = trpc.ips.count.useQuery();
+  const pagesCount = ipsData ? ipsData.pagesCount : 0;
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
 
   return <Layout>
     <main className='w-screen p-4'>
       <div className="text-center">
-        <Heading>Live IPs</Heading>
+        <Heading>Checked IPs: {countData?.allCount}</Heading>
+        <Heading>Live IPs: {countData?.liveCount}</Heading>
       </div>
       <table className='table-fixed mb-4 w-full'>
         <thead>
@@ -32,11 +34,11 @@ const Users: NextPage = () => {
         </thead>
 
         <tbody>
-          {!data
+          {!ipsData
             ? <div className="flex justify-center items-center w-screen h-screen">
               <Spinner />
             </div>
-            : data.ips.map((ip) => <tr key={ip.address}>
+            : ipsData.ips.map((ip) => <tr key={ip.address}>
               <td className='border px-4 py-2 text-center'>
                 <a className='text-lg hover:text-rose-500 visited:text-rose-700'
                   href={`http://${ip.address}`} target='_blank' rel='noreferrer'>

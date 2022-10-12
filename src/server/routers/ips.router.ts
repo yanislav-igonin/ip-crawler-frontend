@@ -13,6 +13,12 @@ export const ipsRouter = t.router({
       take: 20,
     });
     const count = await db.ips.count({ where: { status: 'ok', statusCode: 200 } });
-    return { ips, count };
+    const pagesCount = Math.ceil(count / 20);
+    return { ips, pagesCount };
+  }),
+  count: t.procedure.query(async ({ ctx: { db } }) => {
+    const liveCount = await db.ips.count({ where: { status: 'ok', statusCode: 200 } });
+    const allCount = await db.ips.count();
+    return { liveCount, allCount };
   }),
 });
