@@ -24,14 +24,14 @@ const MyApp: AppType = ({ Component, pageProps }) => <ErrorBoundary>
     <meta property="og:url" content="https://ips.h0b0.dev" />
     <meta property="og:title" content="IP Crawler" />
     <meta property="og:description" content="List of live IP addresses that updates in real-time." />
-    <meta property="og:image" content="https://ips.h0b0.dev/meta.jpg" />
+    <meta property="og:image" content="https://ips.h0b0.dev/meta.jpeg" />
 
     {/* Twitter */}
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://ips.h0b0.dev" />
     <meta property="twitter:title" content="IP Crawler" />
     <meta property="twitter:description" content="List of live IP addresses that updates in real-time." />
-    <meta property="twitter:image" content="https://ips.h0b0.dev/meta.jpg" />
+    <meta property="twitter:image" content="https://ips.h0b0.dev/meta.jpeg" />
   </Head>
   <Component {...pageProps} />
 </ErrorBoundary>;
