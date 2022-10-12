@@ -4,3 +4,4 @@ export * from './ErrorBoundary';
 export * from './Layout';
 export * from './Heading';
 export * from './Spinner';
+export * from './Footer';
