@@ -13,6 +13,11 @@ const MyApp: AppType = ({ Component, pageProps }) => <ErrorBoundary>
     <title>IP Crawler</title>
     <meta name="title" content="IP Crawler" />
     <meta name="description" content="List of live IP addresses that updates in real-time." />
+    <meta name="keywords" content="cralwer,ip" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Yanislav Igonin" />
 
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
