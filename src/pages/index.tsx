@@ -25,7 +25,7 @@ const Index: NextPage = () => {
         <Heading>Checked IPs: {countData?.allCount}</Heading>
         <Heading>Live IPs: {countData?.liveCount}</Heading>
       </div>
-      <table className='table-fixed mb-4 w-full'>
+      <table className='table-fixed mb-4 w-full dark:text-slate-200'>
         <thead>
           <tr>
             <th className='px-4 py-2'>IP</th>
@@ -39,20 +39,20 @@ const Index: NextPage = () => {
               <Spinner />
             </div>
             : ipsData.ips.map((ip) => <tr key={ip.address}>
-              <td className='border px-4 py-2 text-center'>
+              <td className='border border-slate-300 dark:border-slate-400 px-4 py-2 text-center'>
                 <a className='text-lg hover:text-rose-500 visited:text-rose-700'
                   href={`http://${ip.address}`} target='_blank' rel='noreferrer'>
                   {ip.address}
                 </a>
               </td>
-              <td className='text-lg border px-4 py-2 text-center'>
+              <td className='text-lg border border-slate-300 dark:border-slate-400 px-4 py-2 text-center'>
                 {ip.checkedAt.toLocaleDateString()}
               </td>
             </tr>)}
         </tbody>
       </table>
 
-      <ul className='flex justify-center items-center gap-2 flex-wrap'>
+      <ul className='flex justify-center items-center gap-2 flex-wrap dark:text-slate-200'>
         {pages.map((page) => <li key={page}>
           <p onClick={() => onPaginationChange(page)}
             className={`${page === activePage ? 'text-xl' : 'text-lg'} cursor-pointer`}
