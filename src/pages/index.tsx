@@ -1,8 +1,13 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { trpc } from '@lib/trpc';
 import { Heading, Layout, Spinner } from '@components';
+
+// This hack needed to disable static optimization
+// so we can use `useRouter` in this page on the 1st render
+// properly, otherwise `query` will be empty.
+export const getServerSideProps = () => ({ props: {} });
 
 const Index: NextPage = () => {
   const router = useRouter();
@@ -11,8 +16,12 @@ const Index: NextPage = () => {
 
   const onPaginationChange = async (page: number) => {
     setActivePage(page);
-    router.push(`/?page=${page}`, undefined, { shallow: true });
   };
+  
+  useEffect(() => {
+    router.push(`/?page=${activePage}`, undefined, { shallow: true });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activePage]);
 
   const { data: ipsData } = trpc.ips.list.useQuery({ page: activePage });
   const { data: countData } = trpc.ips.count.useQuery();
