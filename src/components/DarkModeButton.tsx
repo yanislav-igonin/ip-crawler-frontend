@@ -18,7 +18,7 @@ const darkColor = 'text-slate-600';
 
 export const DarkModeButton = () => {
   const [theme, setTheme] = useDarkMode();
-  const [color, setColor] = useState(darkColor);
+  const [color, setColor] = useState<typeof lightColor | typeof darkColor>(darkColor);
   const [path, setPath] = useState(lightModePath);
 
   const isDarkNow = theme === ThemeMode.Dark;
@@ -34,7 +34,7 @@ export const DarkModeButton = () => {
   return <svg
     onClick={() => setTheme(nextTheme)}
     xmlns="http://www.w3.org/2000/svg"
-    className={`cursor-pointer h-10 w-10 ${color}`}
+    className={`cursor-pointer h-8 w-8 ${color}`}
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
