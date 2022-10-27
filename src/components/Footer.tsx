@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { DarkModeButton } from './DarkModeButton';
 import { GithubIcon } from './GithubIcon';
 
 export const Footer = () => <footer className="flex flex-col justify-center items-center w-full bottom-0 mb-4">
