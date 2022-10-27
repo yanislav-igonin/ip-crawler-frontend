@@ -14,7 +14,7 @@ const Index: NextPage = () => {
   const pageFromQuery = Number(router.query.page) || 1;
   const [activePage, setActivePage] = useState(pageFromQuery);
 
-  const onPaginationChange = async (page: number) => {
+  const onPaginationChange = (page: number) => {
     setActivePage(page);
   };
   
