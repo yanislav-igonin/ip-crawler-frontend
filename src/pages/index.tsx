@@ -31,8 +31,8 @@ const Index: NextPage = () => {
   return <Layout>
     <main className='w-screen p-4'>
       <div className="text-center">
-        <Heading>Checked IPs: {countData?.allCount}</Heading>
-        <Heading>Live IPs: {countData?.liveCount}</Heading>
+        <Heading>Checked IPs: {countData ? countData.allCount : 'loading...'}</Heading>
+        <Heading>Live IPs: {countData? countData.liveCount : 'loading...'}</Heading>
       </div>
       <table className='table-fixed mb-4 w-full dark:text-slate-200'>
         <thead>
