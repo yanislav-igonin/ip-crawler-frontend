@@ -16,11 +16,12 @@ export const ipsRouter = t.router({
     const pagesCount = Math.ceil(count / 20);
     return { ips, pagesCount };
   }),
-  count: t.procedure.query(async ({ ctx: { db } }) => {
-    const [liveCount, allCount] = await Promise.all([
-      db.ips.count({ where: { statusCode: 200 } }),
-      db.ips.count(),
-    ]);
-    return { liveCount, allCount };
+  countAll: t.procedure.query(async ({ ctx: { db } }) => {
+    const count = await db.ips.count();
+    return { count };
+  }),
+  countLive: t.procedure.query(async ({ ctx: { db } }) => {
+    const count = await db.ips.count({ where: { statusCode: 200 } });
+    return { count };
   }),
 });
