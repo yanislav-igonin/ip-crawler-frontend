@@ -24,15 +24,16 @@ const Index: NextPage = () => {
   }, [activePage]);
 
   const { data: ipsData } = trpc.ips.list.useQuery({ page: activePage });
-  const { data: countData } = trpc.ips.count.useQuery();
+  const { data: countAllData } = trpc.ips.countAll.useQuery();
+  const { data: countLiveData } = trpc.ips.countLive.useQuery();
   const pagesCount = ipsData ? ipsData.pagesCount : 0;
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
 
   return <Layout>
     <main className='w-screen p-4'>
       <div className="text-center">
-        <Heading>Checked IPs: {countData ? countData.allCount : 'loading...'}</Heading>
-        <Heading>Live IPs: {countData? countData.liveCount : 'loading...'}</Heading>
+        <Heading>Checked IPs: {countAllData ? countAllData.count : 'loading...'}</Heading>
+        <Heading>Live IPs: {countLiveData? countLiveData.count : 'loading...'}</Heading>
       </div>
       <table className='table-fixed mb-4 w-full dark:text-slate-200'>
         <thead>

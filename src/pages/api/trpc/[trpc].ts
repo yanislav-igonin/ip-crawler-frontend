@@ -23,9 +23,9 @@
    /**
     * Enable query batching
     */
-   batching: {
-     enabled: true,
-   },
+  //  batching: {
+  //    enabled: true,
+  //  },
    /**
     * @link https://trpc.io/docs/caching#api-response-caching
     */
