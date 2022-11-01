@@ -12,12 +12,12 @@ export const ipsRouter = t.router({
       skip: (page - 1) * 20,
       take: 20,
     });
-    const count = await db.ips.count({ where: { status: 'ok', statusCode: 200 } });
+    const count = await db.ips.count({ where: { statusCode: 200 } });
     const pagesCount = Math.ceil(count / 20);
     return { ips, pagesCount };
   }),
   count: t.procedure.query(async ({ ctx: { db } }) => {
-    const liveCount = await db.ips.count({ where: { status: 'ok', statusCode: 200 } });
+    const liveCount = await db.ips.count({ where: { statusCode: 200 } });
     const allCount = await db.ips.count();
     return { liveCount, allCount };
   }),
